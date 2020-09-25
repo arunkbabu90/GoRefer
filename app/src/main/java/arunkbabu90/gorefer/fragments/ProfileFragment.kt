@@ -70,9 +70,9 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         when (p0?.id) {
             R.id.fab_add -> {
                 if (!isFabClicked)
-                    expandFabs()
+                    showFabs()
                 else
-                    collapseFabs()
+                    hideFabs()
 
                 isFabClicked = !isFabClicked
             }
@@ -91,23 +91,23 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         mTarget = object : CustomTarget<Drawable>() {
             override fun onLoadStarted(placeholder: Drawable?) {
                 super.onLoadStarted(placeholder)
-                iv_profile_dp.showProgressBar()
+                iv_profile_dp?.showProgressBar()
             }
 
             override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
-                iv_profile_dp.setImageDrawable(resource)
-                iv_profile_dp.hideProgressBar()
+                iv_profile_dp?.setImageDrawable(resource)
+                iv_profile_dp?.hideProgressBar()
             }
 
             override fun onLoadCleared(placeholder: Drawable?) {
-                iv_profile_dp.setImageDrawable(null)
+                iv_profile_dp?.setImageDrawable(null)
             }
 
             override fun onLoadFailed(errorDrawable: Drawable?) {
                 super.onLoadFailed(errorDrawable)
-                iv_profile_dp.setImageDrawable(errorDrawable)
-                iv_profile_dp.setImageDrawable(null)
-                iv_profile_dp.hideProgressBar()
+                iv_profile_dp?.setImageDrawable(errorDrawable)
+                iv_profile_dp?.setImageDrawable(null)
+                iv_profile_dp?.hideProgressBar()
             }
 
         }
@@ -122,30 +122,38 @@ class ProfileFragment : Fragment(), View.OnClickListener {
      * Show all the three small Floating Action buttons with an animation as if they are emanating
      * from the (+) Fab
      */
-    private fun expandFabs() {
-        fab_offerings.visibility = View.VISIBLE
-        fab_recommendations.visibility = View.VISIBLE
-        fab_looking.visibility = View.VISIBLE
+    private fun showFabs() {
+        fab_offerings?.visibility = View.VISIBLE
+        fab_recommendations?.visibility = View.VISIBLE
+        fab_looking?.visibility = View.VISIBLE
 
-        fab_offerings.startAnimation(animPullUp)
-        fab_recommendations.startAnimation(animPullUp)
-        fab_looking.startAnimation(animPullUp)
-        fab_add.startAnimation(animFabOpen)
+        fab_offerings?.startAnimation(animPullUp)
+        fab_recommendations?.startAnimation(animPullUp)
+        fab_looking?.startAnimation(animPullUp)
+        fab_add?.startAnimation(animFabOpen)
+
+        fab_looking?.isClickable = true
+        fab_offerings?.isClickable = true
+        fab_recommendations?.isClickable = true
     }
 
     /**
      * Hides all the three small Floating Action buttons with an animation as if they are collapsing
      * to the (+) Fab
      */
-    private fun collapseFabs() {
-        fab_offerings.visibility = View.GONE
-        fab_recommendations.visibility = View.GONE
-        fab_looking.visibility = View.GONE
+    private fun hideFabs() {
+        fab_offerings?.visibility = View.GONE
+        fab_recommendations?.visibility = View.GONE
+        fab_looking?.visibility = View.GONE
 
-        fab_offerings.startAnimation(animPullDown)
-        fab_recommendations.startAnimation(animPullDown)
-        fab_looking.startAnimation(animPullDown)
-        fab_add.startAnimation(animFabClose)
+        fab_offerings?.startAnimation(animPullDown)
+        fab_recommendations?.startAnimation(animPullDown)
+        fab_looking?.startAnimation(animPullDown)
+        fab_add?.startAnimation(animFabClose)
+
+        fab_looking?.isClickable = false
+        fab_offerings?.isClickable = false
+        fab_recommendations?.isClickable = false
     }
 
     /**

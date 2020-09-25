@@ -17,7 +17,7 @@
     <string name="recommends">Recommends (%1$d)</string>
     <string name="item_clicked">%1$s %2$s clicked</string>
 
-    <string name="hello_blank_fragment">Blank fragment</string>
+    <string name="hello_blank_fragment">Not Required to Implement</string>
     <string name="err_unable_to_fetch">Error! Unable to fetch results</string>
     <string name="looking_click">Looking Clicked</string>
     <string name="offering_click">Offerings Clicked</string>

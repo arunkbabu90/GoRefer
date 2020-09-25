@@ -26,7 +26,7 @@
         android:layout_margin="@dimen/medium_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/sample_dp" />
+        tools:src="@drawable/default_dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_invite"

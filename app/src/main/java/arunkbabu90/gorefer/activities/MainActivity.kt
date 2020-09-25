@@ -1,8 +1,8 @@
 package arunkbabu90.gorefer.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import arunkbabu90.gorefer.R
 import arunkbabu90.gorefer.fragments.BlankFragment
 import arunkbabu90.gorefer.fragments.ProfileFragment
@@ -30,10 +30,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             R.id.mnu_alerts, R.id.mnu_chats, R.id.mnu_home -> {
                 // Since my scope of this assignment is only Profile Screen; Show the blank fragment
                 // on item selection
+                profileFrag = null
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, BlankFragment())
                     .commit()
-                profileFrag = null
             }
             R.id.mnu_profile -> {
                 // When profile menu item is selected Show Profile
