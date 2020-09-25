@@ -34,6 +34,10 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     private var isFabClicked = false
 
+    companion object {
+        var isProfileFragmentActive = false
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
@@ -64,10 +68,18 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         fab_looking.setOnClickListener(this)
         fab_offerings.setOnClickListener(this)
         fab_recommendations.setOnClickListener(this)
+        btn_invite.setOnClickListener(this)
+        btn_other_settings.setOnClickListener(this)
+
+        isProfileFragmentActive = true
     }
 
     override fun onClick(p0: View?) {
         when (p0?.id) {
+            R.id.btn_invite -> Toast.makeText(context, getString(R.string.invite_frnds), Toast.LENGTH_SHORT).show()
+
+            R.id.btn_other_settings -> Toast.makeText(context, getString(R.string.other_settings), Toast.LENGTH_SHORT).show()
+
             R.id.fab_add -> {
                 if (!isFabClicked)
                     showFabs()
@@ -76,6 +88,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
                 isFabClicked = !isFabClicked
             }
+
             R.id.fab_looking -> Toast.makeText(context, getString(R.string.looking_click), Toast.LENGTH_SHORT).show()
 
             R.id.fab_offerings -> Toast.makeText(context, getString(R.string.offering_click), Toast.LENGTH_SHORT).show()
@@ -104,9 +117,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             }
 
             override fun onLoadFailed(errorDrawable: Drawable?) {
-                super.onLoadFailed(errorDrawable)
                 iv_profile_dp?.setImageDrawable(errorDrawable)
-                iv_profile_dp?.setImageDrawable(null)
                 iv_profile_dp?.hideProgressBar()
             }
 
@@ -181,5 +192,19 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             tabLayoutMediator?.detach()
             tabLayoutMediator?.attach()
         }
+    }
+
+    fun populateToRequestFragment() {
+        val a = vp_profile.adapter as CategoryAdapter
+        try {
+            (a.currentFragment as RequestsFragment).populate()
+        } catch (e: ClassCastException) {
+            e.printStackTrace()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        isProfileFragmentActive = false
     }
 }
