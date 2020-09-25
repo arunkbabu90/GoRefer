@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">GoRefer</string>
+    <string name="profile_title">Profile Settings</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="err_unexpected">An unexpected error has occurred</string>
+    <string name="invite_frnds">Invite More Friends</string>
+    <string name="other_settings">Other Settings</string>
+    <string name="no_requests">You don\'t have any requests yet</string>
+    <string name="no_offerings">You don\'t have any offerings yet</string>
+    <string name="no_recommendations">You don\'t have any recommendations yet</string>
+    <string name="feeds">Feeds</string>
+    <string name="chats">Chats</string>
+    <string name="alerts">Alerts</string>
+    <string name="profile">Profile</string>
+    <string name="requests">Requests (%1$d)</string>
+    <string name="offerings">Offerings (%1$d)</string>
+    <string name="recommends">Recommends (%1$d)</string>
+    <string name="item_clicked">%1$s %2$s clicked</string>
+
+    <string name="hello_blank_fragment">Blank fragment</string>
+    <string name="err_unable_to_fetch">Error! Unable to fetch results</string>
+    <string name="looking_click">Looking Clicked</string>
+    <string name="offering_click">Offerings Clicked</string>
+    <string name="recommendation_click">Recommendations Clicked</string>
+</resources>
