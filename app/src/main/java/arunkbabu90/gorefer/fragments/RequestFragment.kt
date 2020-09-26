@@ -32,6 +32,10 @@ class RequestsFragment : Fragment() {
     private var cPageNo: Int = 1
     private val MAX_PAGES = 10
 
+    companion object {
+        const val KEY_STATE_POST_LIST = "post_key_state_list"
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_request, container, false)
@@ -70,7 +74,11 @@ class RequestsFragment : Fragment() {
         postsList.addAll(posts)
         postAdapter.notifyDataSetChanged()
 
-        (activity as MainActivity).updateCountBadge(postsList.size)
+        try {
+            (activity as MainActivity).updateCountBadge(postsList.size)
+        } catch (e: NullPointerException) {
+            e.printStackTrace()
+        }
     }
 
     /**
@@ -143,5 +151,15 @@ class RequestsFragment : Fragment() {
             }
         })
         return isAvailable[0]
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelableArrayList(KEY_STATE_POST_LIST, postsList)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        populate(savedInstanceState?.getParcelableArrayList(KEY_STATE_POST_LIST) ?: ArrayList())
     }
 }
