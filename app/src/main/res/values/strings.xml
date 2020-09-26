@@ -12,9 +12,9 @@
     <string name="chats">Chats</string>
     <string name="alerts">Alerts</string>
     <string name="profile">Profile</string>
-    <string name="requests">Requests (%1$d)</string>
-    <string name="offerings">Offerings (%1$d)</string>
-    <string name="recommends">Recommends (%1$d)</string>
+    <string name="requests_title">Requests (%1$d)</string>
+    <string name="offerings_title">Offerings (%1$d)</string>
+    <string name="recommends_title">Recommends (%1$d)</string>
     <string name="item_clicked">%1$s %2$s clicked</string>
 
     <string name="hello_blank_fragment">Not Required to Implement</string>
@@ -22,4 +22,7 @@
     <string name="looking_click">Looking Clicked</string>
     <string name="offering_click">Offerings Clicked</string>
     <string name="recommendation_click">Recommendations Clicked</string>
+    <string name="recommendations">Recommendations</string>
+    <string name="offerings">Offerings</string>
+    <string name="looking_for">Looking for</string>
 </resources>

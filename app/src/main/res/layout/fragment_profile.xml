@@ -69,10 +69,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/medium_margin"
-        android:background="@color/colorFadedWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_profile_dp"
+        android:background="@color/colorFadedWhite"
         app:tabGravity="fill"
         app:tabIndicatorColor="@color/colorAccent"
         app:tabIndicatorFullWidth="true"
@@ -111,7 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/default_margin"
         android:src="@drawable/ic_recommendations"
-        app:backgroundTint="@color/colorDarkBackgroundGrey"
+        app:backgroundTint="@color/colorFadedWhite"
         app:fabSize="mini"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/fab_add"
@@ -119,13 +119,26 @@
         app:layout_constraintStart_toStartOf="@id/fab_add"
         app:tint="@color/colorAccent" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/recommendations_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:text="@string/recommendations"
+        android:visibility="gone"
+        android:translationZ="6dp"
+        android:layout_marginEnd="@dimen/default_margin"
+        app:layout_constraintTop_toTopOf="@id/fab_recommendations"
+        app:layout_constraintEnd_toStartOf="@id/fab_recommendations"
+        app:layout_constraintBottom_toBottomOf="@id/fab_recommendations" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_offerings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/default_margin"
         android:src="@drawable/ic_offerings"
-        app:backgroundTint="@color/colorDarkBackgroundGrey"
+        app:backgroundTint="@color/colorFadedWhite"
         app:fabSize="mini"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/fab_recommendations"
@@ -133,13 +146,26 @@
         app:layout_constraintStart_toStartOf="@id/fab_add"
         app:tint="@color/colorAccent" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/offerings_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:text="@string/offerings"
+        android:visibility="gone"
+        android:translationZ="6dp"
+        android:layout_marginEnd="@dimen/default_margin"
+        app:layout_constraintTop_toTopOf="@id/fab_offerings"
+        app:layout_constraintEnd_toStartOf="@id/fab_offerings"
+        app:layout_constraintBottom_toBottomOf="@id/fab_offerings" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_looking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/default_margin"
         android:src="@drawable/ic_looking_for"
-        app:backgroundTint="@color/colorDarkBackgroundGrey"
+        app:backgroundTint="@color/colorFadedWhite"
         app:fabSize="mini"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/fab_offerings"
@@ -147,4 +173,24 @@
         app:layout_constraintStart_toStartOf="@id/fab_add"
         app:tint="@color/colorAccent" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/looking_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:text="@string/looking_for"
+        android:visibility="gone"
+        android:translationZ="6dp"
+        android:layout_marginEnd="@dimen/default_margin"
+        app:layout_constraintTop_toTopOf="@id/fab_looking"
+        app:layout_constraintEnd_toStartOf="@id/fab_looking"
+        app:layout_constraintBottom_toBottomOf="@id/fab_looking" />
+
+    <View
+        android:id="@+id/fragProfile_semiTransparentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:translationZ="4dp"
+        android:visibility="gone"
+        android:background="@color/colorDarkGreyTransparent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

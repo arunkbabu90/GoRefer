@@ -53,9 +53,9 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
         tabLayoutMediator = TabLayoutMediator(tab_profile, vp_profile) { tab, position ->
             tab.text = when (position) {
-                0 -> getString(R.string.requests, requestsCount)
-                1 -> getString(R.string.offerings, offeringsCount)
-                2 -> getString(R.string.recommends, recommendsCount)
+                0 -> getString(R.string.requests_title, requestsCount)
+                1 -> getString(R.string.offerings_title, offeringsCount)
+                2 -> getString(R.string.recommends_title, recommendsCount)
                 else -> ""
             }
         }
@@ -137,15 +137,27 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         fab_offerings?.visibility = View.VISIBLE
         fab_recommendations?.visibility = View.VISIBLE
         fab_looking?.visibility = View.VISIBLE
+        recommendations_textView.visibility = View.VISIBLE
+        offerings_textView.visibility = View.VISIBLE
+        looking_textView.visibility = View.VISIBLE
 
         fab_offerings?.startAnimation(animPullUp)
+        offerings_textView.startAnimation(animPullUp)
         fab_recommendations?.startAnimation(animPullUp)
+        recommendations_textView.startAnimation(animPullUp)
         fab_looking?.startAnimation(animPullUp)
+        looking_textView.startAnimation(animPullUp)
         fab_add?.startAnimation(animFabOpen)
 
         fab_looking?.isClickable = true
         fab_offerings?.isClickable = true
         fab_recommendations?.isClickable = true
+
+        // Darken the background
+        val c = context
+        if (c != null) {
+            fragProfile_semiTransparentView.visibility = View.VISIBLE
+        }
     }
 
     /**
@@ -156,15 +168,29 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         fab_offerings?.visibility = View.GONE
         fab_recommendations?.visibility = View.GONE
         fab_looking?.visibility = View.GONE
+        recommendations_textView.visibility = View.GONE
+        recommendations_textView.visibility = View.GONE
+        offerings_textView.visibility = View.GONE
+        looking_textView.visibility = View.GONE
 
         fab_offerings?.startAnimation(animPullDown)
+        offerings_textView.startAnimation(animPullDown)
         fab_recommendations?.startAnimation(animPullDown)
+        recommendations_textView.startAnimation(animPullDown)
+        recommendations_textView.startAnimation(animPullDown)
+        looking_textView.startAnimation(animPullDown)
         fab_looking?.startAnimation(animPullDown)
         fab_add?.startAnimation(animFabClose)
 
         fab_looking?.isClickable = false
         fab_offerings?.isClickable = false
         fab_recommendations?.isClickable = false
+
+        // Restore from the dark background
+        val c = context
+        if (c != null) {
+            fragProfile_semiTransparentView.visibility = View.GONE
+        }
     }
 
     /**
@@ -179,13 +205,13 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         recommendsCount = recCount
 
         val requestsTab = tab_profile.getTabAt(0)
-        requestsTab?.text = getString(R.string.requests, requestsCount)
+        requestsTab?.text = getString(R.string.requests_title, requestsCount)
 
         val offeringsTab = tab_profile.getTabAt(1)
-        offeringsTab?.text = getString(R.string.requests, offeringsCount)
+        offeringsTab?.text = getString(R.string.requests_title, offeringsCount)
 
         val recommendsTab = tab_profile.getTabAt(2)
-        recommendsTab?.text = getString(R.string.requests, recommendsCount)
+        recommendsTab?.text = getString(R.string.requests_title, recommendsCount)
     }
 
     override fun onDestroyView() {

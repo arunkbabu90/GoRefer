@@ -7,4 +7,5 @@
     <color name="colorLightGrey">#D7D7D7</color>
     <color name="colorTextGrey">#6E6E6E</color>
     <color name="colorFadedWhite">#FBFBFB</color>
+    <color name="colorDarkGreyTransparent">#90000000</color>
 </resources>
