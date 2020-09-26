@@ -19,14 +19,30 @@
         app:tint="@color/colorAccent"
         tools:ignore="ContentDescription" />
 
-    <arunkbabu90.gorefer.views.CircularImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_profile_dp"
         android:layout_width="@dimen/dp_view_size"
         android:layout_height="@dimen/dp_view_size"
         android:layout_margin="@dimen/medium_margin"
+        android:padding="3dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/default_dp" />
+        app:shapeAppearance="@style/CircularImageView"
+        app:srcCompat="@drawable/default_dp"
+        app:strokeColor="@color/colorAccent"
+        app:strokeWidth="2dp" />
+
+    <ProgressBar
+        android:id="@+id/dp_ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:translationZ="2dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/iv_profile_dp"
+        app:layout_constraintEnd_toEndOf="@id/iv_profile_dp"
+        app:layout_constraintStart_toStartOf="@id/iv_profile_dp"
+        app:layout_constraintTop_toTopOf="@id/iv_profile_dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_invite"
@@ -69,10 +85,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/medium_margin"
+        android:background="@color/colorFadedWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_profile_dp"
-        android:background="@color/colorFadedWhite"
         app:tabGravity="fill"
         app:tabIndicatorColor="@color/colorAccent"
         app:tabIndicatorFullWidth="true"
@@ -80,8 +96,8 @@
         app:tabIndicatorHeight="4dp"
         app:tabMaxWidth="0dp"
         app:tabMode="fixed"
-        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
         app:tabSelectedTextColor="@android:color/black"
+        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
         app:tabTextColor="@color/colorLightGrey" />
 
     <androidx.viewpager2.widget.ViewPager2
@@ -111,9 +127,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/default_margin"
         android:src="@drawable/ic_recommendations"
+        android:visibility="gone"
         app:backgroundTint="@color/colorFadedWhite"
         app:fabSize="mini"
-        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/fab_add"
         app:layout_constraintEnd_toEndOf="@id/fab_add"
         app:layout_constraintStart_toStartOf="@id/fab_add"
@@ -123,14 +139,14 @@
         android:id="@+id/recommendations_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorAccent"
-        android:text="@string/recommendations"
-        android:visibility="gone"
-        android:translationZ="6dp"
         android:layout_marginEnd="@dimen/default_margin"
-        app:layout_constraintTop_toTopOf="@id/fab_recommendations"
+        android:text="@string/recommendations"
+        android:textColor="@color/colorAccent"
+        android:translationZ="6dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/fab_recommendations"
         app:layout_constraintEnd_toStartOf="@id/fab_recommendations"
-        app:layout_constraintBottom_toBottomOf="@id/fab_recommendations" />
+        app:layout_constraintTop_toTopOf="@id/fab_recommendations" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_offerings"
@@ -138,9 +154,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/default_margin"
         android:src="@drawable/ic_offerings"
+        android:visibility="gone"
         app:backgroundTint="@color/colorFadedWhite"
         app:fabSize="mini"
-        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/fab_recommendations"
         app:layout_constraintEnd_toEndOf="@id/fab_add"
         app:layout_constraintStart_toStartOf="@id/fab_add"
@@ -150,14 +166,14 @@
         android:id="@+id/offerings_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorAccent"
-        android:text="@string/offerings"
-        android:visibility="gone"
-        android:translationZ="6dp"
         android:layout_marginEnd="@dimen/default_margin"
-        app:layout_constraintTop_toTopOf="@id/fab_offerings"
+        android:text="@string/offerings"
+        android:textColor="@color/colorAccent"
+        android:translationZ="6dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/fab_offerings"
         app:layout_constraintEnd_toStartOf="@id/fab_offerings"
-        app:layout_constraintBottom_toBottomOf="@id/fab_offerings" />
+        app:layout_constraintTop_toTopOf="@id/fab_offerings" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_looking"
@@ -165,9 +181,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/default_margin"
         android:src="@drawable/ic_looking_for"
+        android:visibility="gone"
         app:backgroundTint="@color/colorFadedWhite"
         app:fabSize="mini"
-        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/fab_offerings"
         app:layout_constraintEnd_toEndOf="@id/fab_add"
         app:layout_constraintStart_toStartOf="@id/fab_add"
@@ -177,20 +193,20 @@
         android:id="@+id/looking_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorAccent"
-        android:text="@string/looking_for"
-        android:visibility="gone"
-        android:translationZ="6dp"
         android:layout_marginEnd="@dimen/default_margin"
-        app:layout_constraintTop_toTopOf="@id/fab_looking"
+        android:text="@string/looking_for"
+        android:textColor="@color/colorAccent"
+        android:translationZ="6dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/fab_looking"
         app:layout_constraintEnd_toStartOf="@id/fab_looking"
-        app:layout_constraintBottom_toBottomOf="@id/fab_looking" />
+        app:layout_constraintTop_toTopOf="@id/fab_looking" />
 
     <View
         android:id="@+id/fragProfile_semiTransparentView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorDarkGreyTransparent"
         android:translationZ="4dp"
-        android:visibility="gone"
-        android:background="@color/colorDarkGreyTransparent"/>
+        android:visibility="gone" />
 </androidx.constraintlayout.widget.ConstraintLayout>

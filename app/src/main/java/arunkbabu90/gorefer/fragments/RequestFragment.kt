@@ -80,7 +80,7 @@ class RequestsFragment : Fragment() {
     private fun loadProfileData(pageNo: Int) {
         if (pageNo > MAX_PAGES) return
 
-        pb_fragRequest.visibility = View.VISIBLE
+        pb_fragRequest?.visibility = View.VISIBLE
 
         val retrofitInterface = RetrofitInterface.instance
         val call = retrofitInterface.getPosts(pageNo)
@@ -94,12 +94,12 @@ class RequestsFragment : Fragment() {
                         populate(posts)
                     } else {
                         tv_fragRequest_error?.text = getString(R.string.no_requests)
-                        tv_fragRequest_error.visibility = View.VISIBLE
+                        tv_fragRequest_error?.visibility = View.VISIBLE
                     }
 
                 } else {
                     tv_fragRequest_error?.text = getString(R.string.err_unable_to_fetch)
-                    tv_fragRequest_error.visibility = View.VISIBLE
+                    tv_fragRequest_error?.visibility = View.VISIBLE
                 }
 
                 pb_fragRequest?.visibility = View.GONE
@@ -108,7 +108,7 @@ class RequestsFragment : Fragment() {
             override fun onFailure(call: Call<List<Post>>, t: Throwable) {
                 if (!isDataLoaded) {
                     tv_fragRequest_error?.text = getString(R.string.err_unable_to_fetch)
-                    tv_fragRequest_error.visibility = View.VISIBLE
+                    tv_fragRequest_error?.visibility = View.VISIBLE
                 }
                 pb_fragRequest?.visibility = View.GONE
                 isDataLoaded = false

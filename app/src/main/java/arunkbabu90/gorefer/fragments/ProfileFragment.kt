@@ -104,12 +104,12 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         mTarget = object : CustomTarget<Drawable>() {
             override fun onLoadStarted(placeholder: Drawable?) {
                 super.onLoadStarted(placeholder)
-                iv_profile_dp?.showProgressBar()
+                dp_ProgressBar.visibility = View.VISIBLE
             }
 
             override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
                 iv_profile_dp?.setImageDrawable(resource)
-                iv_profile_dp?.hideProgressBar()
+                dp_ProgressBar.visibility = View.GONE
             }
 
             override fun onLoadCleared(placeholder: Drawable?) {
@@ -118,7 +118,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
             override fun onLoadFailed(errorDrawable: Drawable?) {
                 iv_profile_dp?.setImageDrawable(errorDrawable)
-                iv_profile_dp?.hideProgressBar()
+                dp_ProgressBar.visibility = View.GONE
             }
 
         }
