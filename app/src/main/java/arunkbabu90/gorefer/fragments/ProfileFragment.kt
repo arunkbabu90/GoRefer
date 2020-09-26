@@ -178,29 +178,14 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         offeringsCount = ofrCount
         recommendsCount = recCount
 
-        if (tabLayoutMediator == null) {
-            tabLayoutMediator = TabLayoutMediator(tab_profile, vp_profile) { tab, position ->
-                tab.text = when (position) {
-                    0 -> getString(R.string.requests, requestsCount)
-                    1 -> getString(R.string.offerings, offeringsCount)
-                    2 -> getString(R.string.recommends, recommendsCount)
-                    else -> ""
-                }
-            }
-            tabLayoutMediator?.attach()
-        } else {
-            tabLayoutMediator?.detach()
-            tabLayoutMediator?.attach()
-        }
-    }
+        val requestsTab = tab_profile.getTabAt(0)
+        requestsTab?.text = getString(R.string.requests, requestsCount)
 
-    fun populateToRequestFragment() {
-        val a = vp_profile.adapter as CategoryAdapter
-        try {
-            (a.currentFragment as RequestsFragment).populate()
-        } catch (e: ClassCastException) {
-            e.printStackTrace()
-        }
+        val offeringsTab = tab_profile.getTabAt(1)
+        offeringsTab?.text = getString(R.string.requests, offeringsCount)
+
+        val recommendsTab = tab_profile.getTabAt(2)
+        recommendsTab?.text = getString(R.string.requests, recommendsCount)
     }
 
     override fun onDestroyView() {

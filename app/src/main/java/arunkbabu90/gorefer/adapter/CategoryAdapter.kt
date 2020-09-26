@@ -7,8 +7,6 @@ import arunkbabu90.gorefer.fragments.RecommendFragment
 import arunkbabu90.gorefer.fragments.RequestsFragment
 
 class CategoryAdapter(frag: Fragment) : FragmentStateAdapter(frag) {
-    lateinit var currentFragment: Fragment
-
     companion object {
         private const val NUM_PAGES = 3
     }
@@ -16,12 +14,11 @@ class CategoryAdapter(frag: Fragment) : FragmentStateAdapter(frag) {
     override fun getItemCount(): Int = NUM_PAGES
 
     override fun createFragment(position: Int): Fragment {
-        currentFragment = when (position) {
+        return when (position) {
             0 -> RequestsFragment()
             1 -> OfferingsFragment()
             2 -> RecommendFragment()
             else -> RequestsFragment()
         }
-        return currentFragment
     }
 }

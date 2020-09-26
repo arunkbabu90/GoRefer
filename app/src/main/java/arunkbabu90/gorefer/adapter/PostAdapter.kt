@@ -8,11 +8,10 @@ import arunkbabu90.gorefer.inflate
 import arunkbabu90.gorefer.model.Post
 import kotlinx.android.synthetic.main.item_two_line_list.view.*
 import java.util.*
-import kotlin.collections.ArrayList
 
 class PostAdapter(private var posts: ArrayList<Post>,
                   private val itemClickListener: (Post) -> Unit
-) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
+) :  RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder
             = PostViewHolder(parent.inflate(R.layout.item_two_line_list))
